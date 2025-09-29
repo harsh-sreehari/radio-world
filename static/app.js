@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const stationList = document.getElementById('station-list');
     const loadingOverlay = document.getElementById('loading-overlay');
     const splashScreen = document.getElementById('splash-screen');
-    const volumeSlider = document.getElementById('volume-slider');
     const stationMetadata = document.getElementById('station-metadata');
 
     // --- SPLASH SCREEN --- 
@@ -121,7 +120,5 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    volumeSlider.addEventListener('input', (e) => {
-        audioPlayer.volume = e.target.value / 100;
-    });
+
 });

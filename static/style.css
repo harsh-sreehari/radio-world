@@ -50,36 +50,7 @@ html, body {
 }
 
 #audio-player {
-    max-width: 300px;
-}
-
-#volume-slider {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100px;
-    height: 8px;
-    background: #555;
-    outline: none;
-    border-radius: 4px;
-    transition: opacity 0.2s;
-}
-
-#volume-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 16px;
-    height: 16px;
-    background: #00ff7f;
-    cursor: pointer;
-    border-radius: 50%;
-}
-
-#volume-slider::-moz-range-thumb {
-    width: 16px;
-    height: 16px;
-    background: #00ff7f;
-    cursor: pointer;
-    border-radius: 50%;
+    max-width: 350px;
 }
 
 #station-metadata {
