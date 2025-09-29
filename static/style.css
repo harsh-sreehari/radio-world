@@ -1,0 +1,155 @@
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #333;
+    color: #fff;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+#station-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1000; /* Ensure player is on top of the map */
+    border-top: 2px solid #00ff7f;
+    max-height: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+#panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(20, 20, 20, 0.9);
+}
+
+#panel-title {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+#audio-player {
+    width: 40%;
+    max-width: 350px;
+}
+
+#station-list {
+    overflow-y: auto; /* Make the list scrollable if it gets too long */
+    padding: 10px 20px;
+}
+
+.station-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #444;
+    cursor: pointer;
+}
+
+.station-item:hover {
+    background-color: #2a2a2a;
+}
+
+.station-item.playing {
+    color: #00ff7f;
+    font-weight: bold;
+}
+
+
+/* Make Leaflet popups have a dark theme */
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+    background: #333;
+    color: #fff;
+}
+
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 4px solid #00ff7f;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* Style for the custom radio station icon */
+.radio-station-icon div {
+    background-color: #00ff7f; /* Vibrant spring green */
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    box-shadow: 0 0 5px #00ff7f;
+    animation: pulse 2s infinite;
+}
+
+/* Style for the currently playing station icon */
+.radio-station-icon-playing div {
+    background-color: #ff4500; /* Vibrant orange-red */
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #fff;
+    box-shadow: 0 0 8px #ff4500, 0 0 12px #ff4500;
+    animation: pulse-playing 1.5s infinite;
+}
+
+/* Animation for the pulsating effect */
+@keyframes pulse {
+    0% {
+        transform: scale(0.9);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(0.9);
+    }
+}
+
+@keyframes pulse-playing {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 8px #ff4500, 0 0 12px #ff4500;
+    }
+    50% {
+        transform: scale(1.2);
+        box-shadow: 0 0 12px #ff8c00, 0 0 18px #ff8c00;
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 8px #ff4500, 0 0 12px #ff4500;
+    }
+}
