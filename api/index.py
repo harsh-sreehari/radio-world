@@ -2,7 +2,7 @@
 import requests
 from flask import Flask, jsonify, render_template
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
 # The base URL for the radio-browser API
 API_BASE_URL = "http://de1.api.radio-browser.info/json"
@@ -48,4 +48,6 @@ def get_stations():
         return jsonify({"error": "Failed to fetch stations from the external API"}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5000)
+
+

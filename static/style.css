@@ -38,12 +38,70 @@ html, body {
     margin: 0;
     font-size: 1.1em;
     font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 #audio-player {
-    width: 40%;
-    max-width: 350px;
+    max-width: 300px;
 }
+
+#volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100px;
+    height: 8px;
+    background: #555;
+    outline: none;
+    border-radius: 4px;
+    transition: opacity 0.2s;
+}
+
+#volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #00ff7f;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+#volume-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: #00ff7f;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+#station-metadata {
+    padding: 8px 20px;
+    background-color: rgba(10, 10, 10, 0.9);
+    font-size: 0.9em;
+    color: #ccc;
+    border-top: 1px solid #222;
+}
+
+#station-metadata span {
+    margin-right: 15px;
+}
+
+#station-metadata .tag {
+    display: inline-block;
+    padding: 2px 6px;
+    background-color: #333;
+    border-radius: 4px;
+    font-size: 0.85em;
+}
+
 
 #station-list {
     overflow-y: auto; /* Make the list scrollable if it gets too long */
@@ -178,4 +236,47 @@ html, body {
     width: 24px;
     height: 24px;
     fill: #ffffff;
+}
+
+/* Splash Screen */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #111;
+    z-index: 3000; /* Highest z-index */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+#splash-screen.hidden {
+    opacity: 0;
+    pointer-events: none; /* Allow clicks to pass through when hidden */
+}
+
+#splash-screen h1 {
+    font-size: 3em;
+    color: #00ff7f;
+    text-shadow: 0 0 15px #00ff7f;
+    animation: pulse-text 2s infinite;
+}
+
+@keyframes pulse-text {
+    0% {
+        transform: scale(1);
+        text-shadow: 0 0 15px #00ff7f;
+    }
+    50% {
+        transform: scale(1.05);
+        text-shadow: 0 0 25px #00ff7f;
+    }
+    100% {
+        transform: scale(1);
+        text-shadow: 0 0 15px #00ff7f;
+    }
 }
